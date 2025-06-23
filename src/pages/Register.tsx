@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Eye, EyeOff, Check } from 'lucide-react';
+import { Eye, EyeOff, Check, Brain, Zap } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -16,21 +16,23 @@ const Register = () => {
     "Set price alerts",
     "Get exclusive offers",
     "Price history tracking",
-    "Mobile notifications"
+    "Mobile notifications",
+    "DealSage AI assistant (1 inquiry/day)",
+    "Real-time deal updates"
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <Header />
       
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Registration Form */}
-            <div className="bg-white p-8 rounded-lg shadow-sm border">
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 animate-fade-in">
               <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-                <p className="text-gray-600">Join thousands of smart shoppers saving money</p>
+                <p className="text-gray-600">Join thousands of smart shoppers saving money with AI</p>
               </div>
 
               <form className="space-y-6">
@@ -41,7 +43,7 @@ const Register = () => {
                       id="firstName"
                       type="text"
                       placeholder="John"
-                      className="mt-1"
+                      className="mt-1 transition-all duration-200 focus:ring-2 focus:ring-blue-500/20"
                     />
                   </div>
                   <div>
@@ -50,7 +52,7 @@ const Register = () => {
                       id="lastName"
                       type="text"
                       placeholder="Doe"
-                      className="mt-1"
+                      className="mt-1 transition-all duration-200 focus:ring-2 focus:ring-blue-500/20"
                     />
                   </div>
                 </div>
@@ -61,7 +63,7 @@ const Register = () => {
                     id="email"
                     type="email"
                     placeholder="john@example.com"
-                    className="mt-1"
+                    className="mt-1 transition-all duration-200 focus:ring-2 focus:ring-blue-500/20"
                   />
                 </div>
 
@@ -72,10 +74,11 @@ const Register = () => {
                       id="password"
                       type={showPassword ? "text" : "password"}
                       placeholder="Create a strong password"
+                      className="transition-all duration-200 focus:ring-2 focus:ring-blue-500/20"
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -93,10 +96,11 @@ const Register = () => {
                       id="confirmPassword"
                       type={showConfirmPassword ? "text" : "password"}
                       placeholder="Confirm your password"
+                      className="transition-all duration-200 focus:ring-2 focus:ring-blue-500/20"
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     >
                       {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -109,13 +113,13 @@ const Register = () => {
                     <input
                       id="terms"
                       type="checkbox"
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 transition-colors duration-200"
                     />
                     <label htmlFor="terms" className="ml-2 text-sm text-gray-700">
                       I agree to the{' '}
-                      <a href="/terms" className="text-blue-600 hover:text-blue-700">Terms of Service</a>
+                      <a href="/terms" className="text-blue-600 hover:text-blue-700 transition-colors duration-200">Terms of Service</a>
                       {' '}and{' '}
-                      <a href="/privacy" className="text-blue-600 hover:text-blue-700">Privacy Policy</a>
+                      <a href="/privacy" className="text-blue-600 hover:text-blue-700 transition-colors duration-200">Privacy Policy</a>
                     </label>
                   </div>
                   
@@ -123,7 +127,7 @@ const Register = () => {
                     <input
                       id="marketing"
                       type="checkbox"
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 transition-colors duration-200"
                       defaultChecked
                     />
                     <label htmlFor="marketing" className="ml-2 text-sm text-gray-700">
@@ -132,7 +136,7 @@ const Register = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                   Create Account
                 </Button>
               </form>
@@ -175,37 +179,63 @@ const Register = () => {
             </div>
 
             {/* Benefits Section */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-8 rounded-lg text-white">
-              <h2 className="text-2xl font-bold mb-6">Why Join LiveDealMonitor?</h2>
+            <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 p-8 rounded-2xl text-white relative overflow-hidden animate-fade-in" style={{ animationDelay: '200ms' }}>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
               
-              <div className="space-y-4 mb-8">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                      <Check className="w-4 h-4" />
+              <div className="relative z-10">
+                <h2 className="text-2xl font-bold mb-6">Why Join AIDealMonitor?</h2>
+                
+                <div className="space-y-4 mb-6">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-center space-x-3 animate-fade-in" style={{ animationDelay: `${300 + index * 50}ms` }}>
+                      <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Check className="w-4 h-4" />
+                      </div>
+                      <span className="text-sm">{benefit}</span>
                     </div>
-                    <span>{benefit}</span>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-2">Join 50,000+ Smart Shoppers</h3>
-                <p className="text-blue-100 mb-4">
-                  Our community has saved over $2.5 million on Amazon purchases this year alone.
-                </p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <div>
-                    <div className="font-semibold">10,000+</div>
-                    <div className="text-blue-200">Active Deals</div>
+                {/* DealSage AI Highlight */}
+                <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl mb-6 animate-scale-in" style={{ animationDelay: '600ms' }}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Brain className="w-5 h-5 text-yellow-400" />
+                    <span className="font-semibold">Meet DealSage AI</span>
                   </div>
-                  <div>
-                    <div className="font-semibold">24/7</div>
-                    <div className="text-blue-200">Monitoring</div>
+                  <p className="text-sm text-blue-100 mb-3">
+                    Your personal AI deal assistant. Ask questions, get recommendations, and discover deals in natural language.
+                  </p>
+                  <div className="flex items-center gap-4 text-xs">
+                    <div className="flex items-center gap-1">
+                      <Zap className="w-3 h-3 text-yellow-400" />
+                      <span>1 inquiry/day free</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Brain className="w-3 h-3 text-yellow-400" />
+                      <span>25 inquiries with Premium</span>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold">Free</div>
-                    <div className="text-blue-200">Forever</div>
+                </div>
+
+                <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl">
+                  <h3 className="text-lg font-semibold mb-2">Join 50,000+ Smart Shoppers</h3>
+                  <p className="text-blue-100 mb-4 text-sm">
+                    Our community has saved over $2.5 million on Amazon purchases this year alone with AI-powered deal discovery.
+                  </p>
+                  <div className="flex items-center space-x-4 text-sm">
+                    <div>
+                      <div className="font-semibold">10,000+</div>
+                      <div className="text-blue-200">Active Deals</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold">24/7</div>
+                      <div className="text-blue-200">AI Monitoring</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold">Free</div>
+                      <div className="text-blue-200">Forever</div>
+                    </div>
                   </div>
                 </div>
               </div>
