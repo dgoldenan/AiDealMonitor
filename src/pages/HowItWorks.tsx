@@ -2,6 +2,7 @@
 import { CheckCircle, Search, Bell, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AIFeatureShowcase from '@/components/AIFeatureShowcase';
 import { Button } from '@/components/ui/button';
 
 const HowItWorks = () => {
@@ -75,7 +76,12 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
+      </div>
 
+      {/* AI Feature Showcase */}
+      <AIFeatureShowcase />
+
+      <div className="container mx-auto px-4 py-16">
         {/* CTA Section */}
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">

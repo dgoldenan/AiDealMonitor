@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DealFilters from '@/components/DealFilters';
 import DealFeed from '@/components/DealFeed';
+import DealSageAI from '@/components/DealSageAI';
 
 const Deals = () => {
   const [filters, setFilters] = useState({
@@ -34,6 +35,7 @@ const Deals = () => {
       </div>
 
       <Footer />
+      <DealSageAI />
     </div>
   );
 };

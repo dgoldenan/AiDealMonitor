@@ -6,6 +6,7 @@ import DealFilters from '@/components/DealFilters';
 import DealFeed from '@/components/DealFeed';
 import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import DealSageAI from '@/components/DealSageAI';
 
 const Index = () => {
   const [filteredDeals, setFilteredDeals] = useState([]);
@@ -37,6 +38,7 @@ const Index = () => {
       </div>
       
       <Footer />
+      <DealSageAI />
     </div>
   );
 };
