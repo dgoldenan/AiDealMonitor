@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import DealCard from './DealCard';
 
@@ -10,7 +11,7 @@ interface DealFeedProps {
   };
 }
 
-// Mock deals data
+// Mock deals data with EST timestamps
 const mockDeals = [
   {
     id: 1,
@@ -22,7 +23,8 @@ const mockDeals = [
     category: "Electronics",
     isPrime: true,
     rating: 4.5,
-    timeLeft: "2h 15m"
+    timeLeft: "2h 15m",
+    foundAt: "Dec 23, 3:45 PM EST"
   },
   {
     id: 2,
@@ -34,7 +36,8 @@ const mockDeals = [
     category: "Electronics",
     isPrime: true,
     rating: 4.3,
-    timeLeft: "5h 42m"
+    timeLeft: "5h 42m",
+    foundAt: "Dec 23, 2:20 PM EST"
   },
   {
     id: 3,
@@ -46,7 +49,8 @@ const mockDeals = [
     category: "Home",
     isPrime: false,
     rating: 4.7,
-    timeLeft: "1d 3h"
+    timeLeft: "1d 3h",
+    foundAt: "Dec 23, 1:10 PM EST"
   },
   {
     id: 4,
@@ -58,7 +62,8 @@ const mockDeals = [
     category: "Home",
     isPrime: true,
     rating: 4.6,
-    timeLeft: "8h 23m"
+    timeLeft: "8h 23m",
+    foundAt: "Dec 23, 12:35 PM EST"
   },
   {
     id: 5,
@@ -70,7 +75,8 @@ const mockDeals = [
     category: "Clothing",
     isPrime: true,
     rating: 4.4,
-    timeLeft: "12h 5m"
+    timeLeft: "12h 5m",
+    foundAt: "Dec 23, 11:50 AM EST"
   },
   {
     id: 6,
@@ -82,7 +88,8 @@ const mockDeals = [
     category: "Electronics",
     isPrime: true,
     rating: 4.2,
-    timeLeft: "4h 17m"
+    timeLeft: "4h 17m",
+    foundAt: "Dec 23, 10:25 AM EST"
   }
 ];
 

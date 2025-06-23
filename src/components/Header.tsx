@@ -14,13 +14,14 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              LiveDealMonitor
+              AIDealMonitor
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link to="/deals" className="hover:text-blue-400 transition-colors">Deals</Link>
+            <Link to="/warehouse-deals" className="hover:text-blue-400 transition-colors">Warehouse Deals</Link>
             <Link to="/categories" className="hover:text-blue-400 transition-colors">Categories</Link>
             <Link to="/how-it-works" className="hover:text-blue-400 transition-colors">How It Works</Link>
             <Link to="/upgrade">
@@ -76,6 +77,7 @@ const Header = () => {
                 />
               </div>
               <Link to="/deals" className="hover:text-blue-400 transition-colors">Deals</Link>
+              <Link to="/warehouse-deals" className="hover:text-blue-400 transition-colors">Warehouse Deals</Link>
               <Link to="/categories" className="hover:text-blue-400 transition-colors">Categories</Link>
               <Link to="/how-it-works" className="hover:text-blue-400 transition-colors">How It Works</Link>
               <Link to="/upgrade">

@@ -41,10 +41,10 @@ const HowItWorks = () => {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-6">
-            How LiveDealMonitor Works
+            How AIDealMonitor Works
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover amazing Amazon deals with our intelligent monitoring system. 
+            Discover amazing Amazon deals with our AI-powered monitoring system. 
             Save money and never miss a great deal again.
           </p>
         </div>
@@ -88,7 +88,7 @@ const HowItWorks = () => {
             Ready to Start Saving?
           </h2>
           <p className="text-gray-600 mb-8">
-            Join thousands of smart shoppers who use LiveDealMonitor to save money.
+            Join thousands of smart shoppers who use AIDealMonitor to save money.
           </p>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
             Get Started Free

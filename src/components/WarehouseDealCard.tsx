@@ -1,14 +1,16 @@
 
-import { Star, Clock, Heart, Calendar } from 'lucide-react';
+import { Star, Clock, Heart, Calendar, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
-interface Deal {
+interface WarehouseDeal {
   id: number;
   title: string;
   image: string;
-  currentPrice: number;
+  newPrice: number;
+  usedPrice: number;
   originalPrice: number;
+  condition: string;
   discount: number;
   category: string;
   isPrime: boolean;
@@ -17,13 +19,14 @@ interface Deal {
   foundAt?: string;
 }
 
-interface DealCardProps {
-  deal: Deal;
+interface WarehouseDealCardProps {
+  deal: WarehouseDeal;
 }
 
-const DealCard = ({ deal }: DealCardProps) => {
+const WarehouseDealCard = ({ deal }: WarehouseDealCardProps) => {
   const [isSaved, setIsSaved] = useState(false);
-  const savings = deal.originalPrice - deal.currentPrice;
+  const usedSavings = deal.originalPrice - deal.usedPrice;
+  const newSavings = deal.originalPrice - deal.newPrice;
 
   // Get current EST time or use foundAt if provided
   const getESTTime = () => {
@@ -44,7 +47,7 @@ const DealCard = ({ deal }: DealCardProps) => {
     <div className="bg-white rounded-lg shadow-sm border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
       {/* Deal Badge */}
       <div className="relative">
-        <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold z-10">
+        <div className="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-bold z-10">
           {deal.discount}% OFF
         </div>
         <div className="absolute top-3 right-3 z-10">
@@ -67,9 +70,15 @@ const DealCard = ({ deal }: DealCardProps) => {
           />
         </div>
         
+        {/* Warehouse Badge */}
+        <div className="absolute bottom-3 left-3 bg-orange-600 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
+          <Package className="w-3 h-3" />
+          Warehouse
+        </div>
+
         {/* Prime Badge */}
         {deal.isPrime && (
-          <div className="absolute bottom-3 left-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
+          <div className="absolute bottom-3 right-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">
             Prime
           </div>
         )}
@@ -78,7 +87,7 @@ const DealCard = ({ deal }: DealCardProps) => {
       {/* Deal Info */}
       <div className="p-4">
         {/* Category */}
-        <div className="text-xs text-blue-600 font-medium mb-2 uppercase tracking-wide">
+        <div className="text-xs text-orange-600 font-medium mb-2 uppercase tracking-wide">
           {deal.category}
         </div>
         
@@ -103,19 +112,42 @@ const DealCard = ({ deal }: DealCardProps) => {
           </div>
           <span className="text-sm text-gray-600 ml-1">({deal.rating})</span>
         </div>
+
+        {/* Condition */}
+        <div className="mb-3">
+          <span className="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded font-medium">
+            {deal.condition}
+          </span>
+        </div>
         
-        {/* Pricing */}
-        <div className="mb-4">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-2xl font-bold text-green-600">
-              ${deal.currentPrice}
-            </span>
-            <span className="text-gray-500 line-through">
-              ${deal.originalPrice}
-            </span>
+        {/* Pricing - Used vs New */}
+        <div className="mb-4 space-y-2">
+          {/* Used Price */}
+          <div className="p-2 bg-orange-50 rounded border border-orange-200">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-sm font-medium text-orange-800">Used Price</span>
+              <span className="text-lg font-bold text-orange-600">${deal.usedPrice}</span>
+            </div>
+            <div className="text-xs text-orange-600">
+              Save ${usedSavings.toFixed(2)} vs MSRP
+            </div>
           </div>
-          <div className="text-sm text-green-600 font-medium">
-            Save ${savings.toFixed(2)}
+          
+          {/* New Price */}
+          <div className="p-2 bg-gray-50 rounded border border-gray-200">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-sm font-medium text-gray-700">New Price</span>
+              <span className="text-lg font-bold text-gray-600">${deal.newPrice}</span>
+            </div>
+            <div className="text-xs text-gray-600">
+              Save ${newSavings.toFixed(2)} vs MSRP
+            </div>
+          </div>
+
+          {/* Original Price */}
+          <div className="text-center">
+            <span className="text-sm text-gray-500">MSRP: </span>
+            <span className="text-sm text-gray-500 line-through">${deal.originalPrice}</span>
           </div>
         </div>
         
@@ -131,13 +163,18 @@ const DealCard = ({ deal }: DealCardProps) => {
           <span className="text-xs">Found: {getESTTime()}</span>
         </div>
         
-        {/* Action Button */}
-        <Button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold">
-          View Deal
-        </Button>
+        {/* Action Buttons */}
+        <div className="space-y-2">
+          <Button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold">
+            View Used Deal
+          </Button>
+          <Button variant="outline" className="w-full text-gray-600 border-gray-300 hover:bg-gray-50">
+            View New Deal
+          </Button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default DealCard;
+export default WarehouseDealCard;

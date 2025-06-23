@@ -1,4 +1,3 @@
-
 import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -11,10 +10,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              LiveDealMonitor
+              AIDealMonitor
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Your trusted companion for finding the best Amazon deals. 
+              Your AI-powered companion for finding the best Amazon deals. 
               Never miss a great discount again.
             </p>
             <div className="flex space-x-4">
@@ -77,7 +76,7 @@ const Footer = () => {
         <div className="border-t border-slate-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2024 LiveDealMonitor. All rights reserved.
+              © 2024 AIDealMonitor. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <span>🚀 Made with Lovable</span>
