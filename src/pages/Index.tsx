@@ -11,7 +11,7 @@ const Index = () => {
   const [filteredDeals, setFilteredDeals] = useState([]);
   const [filters, setFilters] = useState({
     category: 'all',
-    priceRange: [0, 1000],
+    priceRange: [0, 1000] as [number, number],
     discount: 0,
     sortBy: 'newest'
   });

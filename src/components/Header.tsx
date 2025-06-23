@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Search, User, Menu, Crown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -12,20 +13,22 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               LiveDealMonitor
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="hover:text-blue-400 transition-colors">Deals</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">Categories</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">How It Works</a>
-            <Button variant="outline" className="text-yellow-400 border-yellow-400 hover:bg-yellow-400 hover:text-slate-800">
-              <Crown className="w-4 h-4 mr-2" />
-              Premium
-            </Button>
+            <Link to="/deals" className="hover:text-blue-400 transition-colors">Deals</Link>
+            <Link to="/categories" className="hover:text-blue-400 transition-colors">Categories</Link>
+            <Link to="/how-it-works" className="hover:text-blue-400 transition-colors">How It Works</Link>
+            <Link to="/upgrade">
+              <Button variant="outline" className="text-yellow-400 border-yellow-400 hover:bg-yellow-400 hover:text-slate-800">
+                <Crown className="w-4 h-4 mr-2" />
+                Premium
+              </Button>
+            </Link>
           </nav>
 
           {/* Search Bar */}
@@ -42,10 +45,12 @@ const Header = () => {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="hidden md:flex items-center">
-              <User className="w-4 h-4 mr-2" />
-              Login
-            </Button>
+            <Link to="/login">
+              <Button variant="ghost" className="hidden md:flex items-center">
+                <User className="w-4 h-4 mr-2" />
+                Login
+              </Button>
+            </Link>
             
             {/* Mobile Menu Button */}
             <Button
@@ -70,13 +75,15 @@ const Header = () => {
                   className="w-full pl-10 pr-4 py-2 bg-slate-700 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              <a href="#" className="hover:text-blue-400 transition-colors">Deals</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Categories</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">How It Works</a>
-              <Button variant="outline" className="text-yellow-400 border-yellow-400 w-fit">
-                <Crown className="w-4 h-4 mr-2" />
-                Premium
-              </Button>
+              <Link to="/deals" className="hover:text-blue-400 transition-colors">Deals</Link>
+              <Link to="/categories" className="hover:text-blue-400 transition-colors">Categories</Link>
+              <Link to="/how-it-works" className="hover:text-blue-400 transition-colors">How It Works</Link>
+              <Link to="/upgrade">
+                <Button variant="outline" className="text-yellow-400 border-yellow-400 w-fit">
+                  <Crown className="w-4 h-4 mr-2" />
+                  Premium
+                </Button>
+              </Link>
             </div>
           </div>
         )}

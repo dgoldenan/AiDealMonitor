@@ -1,5 +1,6 @@
 
 import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
@@ -9,9 +10,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               LiveDealMonitor
-            </div>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted companion for finding the best Amazon deals. 
               Never miss a great discount again.
@@ -33,10 +34,10 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Quick Links</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Browse Deals</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Categories</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Premium</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">How It Works</a>
+              <Link to="/deals" className="block text-gray-400 hover:text-white transition-colors text-sm">Browse Deals</Link>
+              <Link to="/categories" className="block text-gray-400 hover:text-white transition-colors text-sm">Categories</Link>
+              <Link to="/upgrade" className="block text-gray-400 hover:text-white transition-colors text-sm">Premium</Link>
+              <Link to="/how-it-works" className="block text-gray-400 hover:text-white transition-colors text-sm">How It Works</Link>
             </div>
           </div>
 
@@ -44,11 +45,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Support</h3>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Help Center</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Contact Us</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">FAQ</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+              <Link to="/help" className="block text-gray-400 hover:text-white transition-colors text-sm">Help Center</Link>
+              <Link to="/contact" className="block text-gray-400 hover:text-white transition-colors text-sm">Contact Us</Link>
+              <Link to="/faq" className="block text-gray-400 hover:text-white transition-colors text-sm">FAQ</Link>
+              <Link to="/privacy" className="block text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+              <Link to="/terms" className="block text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link>
             </div>
           </div>
 
